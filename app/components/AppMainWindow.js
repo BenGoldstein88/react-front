@@ -9,14 +9,36 @@ export default class AppMainWindow extends React.Component {
     	currentView: 'default'
     }
 
-    this.handleCurrentViewChange = this.handleCurrentViewChange.bind(this)
+    // this.handleCurrentViewChange = this.handleCurrentViewChange.bind(this)
+    this.handleProcessPayment = this.handleProcessPayment.bind(this)
+    this.handlePaymentSuccess = this.handlePaymentSuccess.bind(this)
+    this.handlePaymentError = this.handlePaymentError.bind(this)
+
   }
 
-  handleCurrentViewChange(e) {
+  // handleCurrentViewChange(e) {
+  // 	this.setState({
+  // 		currentView: e.target.value
+  // 	})
+  // }
+
+  handleProcessPayment(e) {
   	this.setState({
-  		currentView: e.target.value
+  		currentView: 'processing'
   	})
   }
+  handlePaymentSuccess(e) {
+  	this.setState({
+  		currentView: 'paymentSuccess'
+  	})
+  }
+  handlePaymentError(e) {
+  	this.setState({
+  		currentView: 'paymentError'
+  	})
+  }
+
+
 
   render() {
     return (
@@ -27,7 +49,11 @@ export default class AppMainWindow extends React.Component {
       	height: '84%'
       }}>
       	THIS IS THE MAIN WINDOW FOR THE APP.
-      	<AppMainWindowContent onCurrentViewChange={this.handleCurrentViewChange} currentView={this.state.currentView} />
+      	<AppMainWindowContent 
+	      	onProcessPayment={this.handleProcessPayment} 
+	      	onPaymentSuccess={this.handlePaymentSuccess} 
+	      	onPaymentError={this.handlePaymentError} 
+	      	currentView={this.state.currentView} />
       </div>
     );
   }
