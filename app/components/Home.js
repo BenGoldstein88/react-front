@@ -1,11 +1,15 @@
 import React from 'react';
+import AppBanner from './AppBanner'
+import AppMainWindow from './AppMainWindow'
 
 export default class Home extends React.Component {
 
   render() {
     return (
       <div>
-      	THIS IS A TEST FOR THE FRONTEND. THIS IS THE HOME COMPONENT.
+      	<AppBanner />
+      	<AppMainWindow />
+
       </div>
     );
   }
